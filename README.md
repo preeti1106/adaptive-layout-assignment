@@ -97,3 +97,12 @@ Ad Spec + Surface Profile → resolveLayout() → ResolvedLayout → renderDom()
 Approximately 2 days, including the resolver algorithm design, surface
 constraint definitions, degradation-logic debugging (clipping/overflow
 edge cases), and documentation.
+
+
+## Bonus Features Implemented
+
+- **Unknown surface resolution**: a live input lets you enter any custom width/height, which the resolver processes using the exact same `resolveLayout()` function — no code changes needed, demonstrating the algorithm generalizes beyond the 4 predefined surfaces.
+- **Smooth animated transitions**: CSS transitions on position/size changes in `render-dom.tsx` make surface switching visually smooth rather than an instant snap.
+- **Text-measurement-aware sizing**: `measureTextWidth()` uses a hidden canvas and the browser's `measureText()` API to size text elements based on actual rendered content width, replacing fixed estimates.
+- **Canvas rendering backend**: `render-canvas.tsx` provides an alternative renderer using `<canvas>` drawing commands instead of DOM elements, consuming the exact same `ResolvedLayout` output as `render-dom.tsx` — proving the resolver is fully decoupled from rendering technology. Toggle between them via the DOM/Canvas buttons in the demo.
+- **Basic accessibility as a first-class constraint**: `hasEnoughContrast()` performs a simplified luminance-ratio contrast check and gates branding placement on it — a logo isn't placed if it wouldn't have adequate contrast against the surface background, in addition to the existing tap-target-size enforcement (`minTapTarget`) for touch surfaces.

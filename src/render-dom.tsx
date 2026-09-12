@@ -24,8 +24,9 @@ export function renderDom(spec: AdSpec, layout: ResolvedLayout) {
           alignItems: "center",
           justifyContent: "center",
           fontSize: 12,
-          overflow: "hidden",
+                   overflow: "hidden",
           color: el.type === "button" ? "white" : "black",
+          transition: "left 0.3s ease, top 0.3s ease, width 0.3s ease, height 0.3s ease",
         }}
       >
         {el.content}
