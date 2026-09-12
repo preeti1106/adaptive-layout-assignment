@@ -1,5 +1,7 @@
 # Adaptive Layout Engine for Multi-Surface Ads
 
+
+**Live demo:** [adaptive-layout-assignment-seven.vercel.app](https://adaptive-layout-assignment-seven.vercel.app)
 A constraint-based layout engine that takes a single declarative ad spec and
 resolves it into a correct, non-overlapping layout for any surface profile
 (mobile, broadcast, kiosk, etc.) — without per-surface hardcoded layouts.
